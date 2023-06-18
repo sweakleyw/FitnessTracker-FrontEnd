@@ -16,6 +16,7 @@ export default function Navbar({ user, setToken, setUser }) {
         {user.id && (
          <>
             <Link to="/myroutines" >My Routines</Link>
+            <Link to="/newroutine" >Add Routine</Link>
             <Link onClick={handleLogout} to={"/"}>Logout</Link>
          </>
         )}

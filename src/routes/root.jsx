@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/NavigationBar";
 import { useState, useEffect } from "react";
-import { getAllRoutines, getAllActivities, userMe } from "../api";
+import { getAllRoutines, getAllActivities, userMe} from "../api";
 
 
 export default function Root() {
@@ -30,10 +30,10 @@ export default function Root() {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const storedToken = localStorage.getItem("token")
-            if(storedToken) {
-                setToken(storedToken)
-                const fetchMe = await userMe(storedToken);
+            const token = localStorage.getItem("token")
+            if(token) {
+                setToken(token)
+                const fetchMe = await userMe(token);
                 setUser(fetchMe)
         }
     }
@@ -41,14 +41,14 @@ export default function Root() {
     }, [token])
 
     useEffect(() => {
-        getAllRoutines();
+        getAllRoutines()
     }, [token])
 
 
     return (
         <div>
             <Navbar user={user} setUser={setUser} setToken={setToken} />
-            <Outlet context={{routines, activities, setToken, user, setRoutines, token}}/>
+            <Outlet context={{routines, activities, setToken, user, setUser, token, setRoutines, setActivities}}/>
         </div>
       );
     }

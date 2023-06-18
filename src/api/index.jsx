@@ -12,13 +12,13 @@ export async function getAllActivities() {
   }
 }  
 
-export async function postActivities(storedToken, name, description) {
+export async function postActivities(token, name, description) {
   try {
     const response = await fetch(`${BASE_URL}/api/activities`, {
       method: "POST",
       headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${storedToken}`
+      'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
         name,
@@ -48,13 +48,13 @@ export async function getAllRoutines() {
 }  
 
 
-export async function postRoutine(storedToken, name, goal, isPublic) {
+export async function postRoutine(token, name, goal, isPublic) {
   try {
     const response = await fetch(`${BASE_URL}/api/routines`, {
       method: "POST",
       headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${storedToken}`
+      'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
         name,
@@ -69,6 +69,50 @@ export async function postRoutine(storedToken, name, goal, isPublic) {
     console.error(error);
   }
 }
+
+export async function editRoutine(token, routineId, name, goal, isPublic) {
+  try {
+    const response = await fetch(`${BASE_URL}/api/routines/${routineId}`, {
+      method: "POST",
+      headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        name,
+        goal,
+        isPublic
+      })
+    });
+    const result = await response.json();
+    console.log(result);
+    return result
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function addRoutineActivity(routineId, activityId, count, duration)  {
+  try {
+    const response = await fetch(`${BASE_URL}/api/routines/${routineId}/activities`, {
+      method: "POST",
+      headers: {
+      'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        activityId,
+        count, 
+        duration
+      })
+    });
+    const result = await response.json();
+    console.log(result);
+    return result
+  } catch (err) {
+    console.error(err);
+  }
+}
+    
     
 //////
 
@@ -115,13 +159,12 @@ export async function userLogin(username, password) {
   }
 }
 
-export async function userMe(storedToken) {
+export async function userMe(token) {
   try {
-    // console.log(storedToken)
     const response = await fetch(`${BASE_URL}/api/users/me`, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${storedToken}`
+        'Authorization': `Bearer ${token}`
       },
     });
     const result = await response.json();
@@ -131,5 +174,26 @@ export async function userMe(storedToken) {
     console.error(error);
   }
 }
+
+
+// struggled with issues of token not reading correctly, moved to myroutines component  
+
+// export async function userRoutine(token, username) {
+//   console.log(username)
+//   try {
+//     const response = await fetch(`${BASE_URL}/api/users/${username}/routines}`, {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${token}`
+//       },
+//     });
+//     const result = await response.json();
+//     console.log(result);
+//     return result
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
 //////
 
