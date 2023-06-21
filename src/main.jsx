@@ -13,6 +13,9 @@ import Routines from './components/Routines';
 import MyRoutines from './components/MyRoutines';
 import Activities from './components/Activities';
 import Routine from './components/Routine';
+import NewRoutine from './components/NewRoutine';
+import AddActivities from './components/AddActivities';
+import EditActivity from './components/EditActivity';
 
 
 const router = createBrowserRouter([
@@ -34,8 +37,20 @@ const router = createBrowserRouter([
         element: <Routine />,
       },
       {
+        path: "/routines/:routineId/activities",
+        element: <AddActivities />,
+      },
+      {
+        path: "/routine_activities/:routineActivityId",
+        element: <EditActivity />,
+      },
+      {
         path: "/myroutines",
         element: <MyRoutines />,
+      },
+      {
+        path: "/newroutine",
+        element: <NewRoutine />,
       },
       {
         path: "/activities",

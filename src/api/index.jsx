@@ -26,7 +26,7 @@ export async function postActivities(token, name, description) {
       })
     });
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     return result
   } catch (error) {
     console.error(error);
@@ -70,48 +70,72 @@ export async function postRoutine(token, name, goal, isPublic) {
   }
 }
 
-export async function editRoutine(token, routineId, name, goal, isPublic) {
-  try {
-    const response = await fetch(`${BASE_URL}/api/routines/${routineId}`, {
-      method: "POST",
-      headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify({
-        name,
-        goal,
-        isPublic
-      })
-    });
-    const result = await response.json();
-    console.log(result);
-    return result
-  } catch (error) {
-    console.error(error);
-  }
-}
+// still struggling with params being defined, moved to component  
 
-export async function addRoutineActivity(routineId, activityId, count, duration)  {
-  try {
-    const response = await fetch(`${BASE_URL}/api/routines/${routineId}/activities`, {
-      method: "POST",
-      headers: {
-      'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        activityId,
-        count, 
-        duration
-      })
-    });
-    const result = await response.json();
-    console.log(result);
-    return result
-  } catch (err) {
-    console.error(err);
-  }
-}
+// export async function editRoutine(token, routineId, name, goal, isPublic) {
+//   try {
+//     const response = await fetch(`${BASE_URL}/api/routines/${routineId}`, {
+//       method: "POST",
+//       headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': `Bearer ${token}`
+//       },
+//       body: JSON.stringify({
+//         name,
+//         goal,
+//         isPublic
+//       })
+//     });
+//     const result = await response.json();
+//     console.log(result);
+//     return result
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// still struggling with params being defined, moved to component  
+
+// export async function addActivityRoutine(routineId, activityId, count, duration)  {
+//   try {
+//     const response = await fetch(`${BASE_URL}/api/routines/${routineId}/activities`, {
+//       method: "POST",
+//       headers: {
+//       'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         activityId,
+//         count, 
+//         duration
+//       })
+//     });
+//     const result = await response.json();
+//     console.log(result);
+//     return result
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+
+// still struggling with params being defined, moved to component  
+
+// export async function deleteRoutine(token, routineId) {
+//   try {
+//     const response = await fetch(`${BASE_URL}/api/routines/${routineId}`, {
+//       method: "DELETE",
+//       headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': `Bearer ${token}`
+//       },
+//     });
+//     const result = await response.json();
+//     console.log(result);
+//     return result
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+  
     
     
 //////

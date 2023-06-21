@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,700;1,400&family=Exo+2:ital,wght@1,800&display=swap');
+
+* {
+    margin: auto;
+    padding: auto;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #000407;
+    padding: 10px;
+}
+
+nav > a {
+    margin: 17px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 20px;
+    color: #fff;
+}
+
+nav > a:hover {
+    color:#EDB518;
+}
+
+nav > #fitness {
+    margin-left: 20px;
+    margin-right: 0;
+    color: #79031D;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+nav > #tracker {
+    margin-left: 5px;
+    color: #EDB518;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#header {
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 30px;
+}
+
+#header-home {
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 30px;
+}
+
+
+#routinespg {
+    margin: 15px 10px 10px 15px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 3px 3px 7px 0px rgba(121, 3, 29, 0.31);
+}
+
+#myroutinespg {
+    margin: 15px 10px 10px 15px;
+    padding: 10px;
+    box-shadow: 3px 3px 7px 0px rgba(121, 3, 29, 0.31);
+    background-color: #fff;
+}
+
+#activitiespg {
+    margin: 15px 10px 10px 15px;
+    padding: 10px;
+    box-shadow: 3px 3px 7px 0px rgba(121, 3, 29, 0.31);
+    background-color: #fff;
+}
+
+#rout-name {
+    padding-bottom: 5px;
+    font-size: 23px;
+    color: #000;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bold;
+}
+
+#rout-owner {
+    padding-bottom: 10px;
+    color: #000;
+}
+
+#act-name {
+    padding-bottom: 5px;
+    font-size: 23px;
+    color: #79031D;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bold;
+}
+
+#routact-name {
+    padding-bottom: 5px;
+    font-size: 18px;
+    color: #79031D;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bold;
+}
+
+#routact-count {
+    padding-bottom: 7px; 
+}
+
+#registration {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 25%;
+}
+
+#reg-err {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ec2424;
+}
+
+#registration > input {
+    margin-bottom: 20px;
+}
+
+#reg-btn {
+    padding: 7px 10px;
+    background-color: #EDB518;
+    color: #000;
+    border-radius: 5px;
+}
+
+#logging-in {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 10px;
+    width: 25%;
+}
+
+#logging-in > input {
+    margin-bottom: 20px;
+}
+
+#log-in {
+    padding: 7px 10px;
+    background-color:#EDB518;
+    color: #000;
+    border-radius: 5px;
+}
+
+#activities-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    width: 25%;
+}
+
+#activities-form > input {
+    margin-bottom: 10px;
+}
+
+#addactivities-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    width: 25%;
+}
+
+#addactivities-form > input {
+    margin-bottom: 10px;
+}
+
+#addactivities-form > select {
+    margin-bottom: 10px;
+}
+
+#editactivities-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    width: 25%;
+}
+
+#editactivities-form > input {
+    margin-bottom: 10px;
+}
+
+#activity-btn {
+    padding: 7px 10px;
+    background-color: #EDB518;
+    color: #000;
+    border-radius: 5px;
+}
+
+#routine-btn {
+    padding: 7px 10px;
+    background-color: #EDB518;
+    color: #000;
+    border-radius: 5px;
+}
+
+#createroutine-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    padding: 10px 10px;
+    color: #000;
+    border-radius: 5px;
+    border: solid 3px #EDB518;
+}
+
+#editroutine-btn {
+    float: right;
+    width: 110px;
+    height: 40px;
+    padding: 10px 10px;
+    color: #fff;
+    background-color: #79031D;
+    border-radius: 5px;
+    border: solid 2px #000;
+}
+
+#editactivity-btn {
+    float: right;
+    width: 110px;
+    height: 40px;
+    padding: 10px 10px;
+    color: #fff;
+    background-color: #79031D;
+    border-radius: 5px;
+    border: solid 2px #000;
+}
+
+#addactivity-btn {
+    float: right;
+    margin-right: 10px;
+    width: 120px;
+    height: 40px;
+    padding: 10px 10px;
+    color: #fff;
+    background-color: #79031D;
+    border-radius: 5px;
+    border: solid 2px #000;
+}
+
+#createactivity-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    padding: 10px 10px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 3px #EDB518;
+}
+
+#delete-btn {
+    padding: 7px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 120px;
+    height: 40px;
+    background-color: #EDB518;
+    color: #000;
+    border-radius: 5px;
+}
+
+#editroutines-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    width: 25%;
+}
+
+#editroutines-form > input {
+    margin-bottom: 10px;
+}
+
+#createroutines-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    width: 25%;
+}
+
+#createroutines-form > input {
+    margin-bottom: 10px;
+}

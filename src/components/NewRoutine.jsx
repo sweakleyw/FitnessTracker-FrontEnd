@@ -30,17 +30,19 @@ export default function NewRoutine() {
           console.error(error)
     }
     }
+
     return (
     <div>
-        <h1>Create Routine</h1>
-        <form onSubmit={handleSubmit}>
+        <h1 id="header">Create Routine</h1>
+        <form onSubmit={handleSubmit} id="createroutines-form">
             <input placeholder="Name" onChange={(event) => setName(event.target.value)} value={name}></input>
             <input placeholder="Goal" onChange={(event) => setGoal(event.target.value)} value={goal}></input>
             <label id="public">Public?</label>
             <input type="checkbox" onChange={() => setIsPublic(!isPublic)} value={isPublic}></input>
             <div id="reg-err">{error}</div>
-            <button id="create-routine">Create Routine</button>
+            <button id="routine-btn">Create Routine</button>
         </form>
     </div>
+    
     )
 }

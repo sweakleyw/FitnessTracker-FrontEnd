@@ -7,6 +7,7 @@ export default function AllActivities() {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [error, setError] = useState("");
 
     const {activities, user, token} = useOutletContext();
     // console.log(activities)
@@ -14,9 +15,16 @@ export default function AllActivities() {
     async function handleSubmit(event){
       event.preventDefault()
   
-      if(user) {
+      if (user) {
           const result = await postActivities(token, name, description);
           console.log(result)
+          setName("");
+          setDescription("");
+      }
+
+      if (error) {
+        setError(error);
+        return;
       }
  
   }
@@ -24,21 +32,24 @@ export default function AllActivities() {
   
     return(
      <div>
-      <h1 id="header">Activities</h1>
       {user.id && (
          <>
-            <form onSubmit={handleSubmit}>
+            <h1 id="header">Create Activities</h1>
+            <form onSubmit={handleSubmit} id="activities-form">
             <input placeholder="Name" onChange={(event) => setName(event.target.value)} value={name}></input>
             <input placeholder="Description" onChange={(event) => setDescription(event.target.value)} value={description}></input>
-            <button id="create-activity">Create Activity</button>
+            <div id="reg-err">{error}</div>
+            <button id="createactivity-btn">Create Activity</button>
         </form>
          </>
         )}
+        
+      <h1 id="header">Activities</h1>
       {activities.map((activity) => {
           return (
-          <div key={activity.id}>
-            <div>Name: {activity.name}</div>
-            <div>Description: {activity.description}</div>
+          <div id="activitiespg" key={activity.id}>
+            <div id="act-name">{activity.name}</div>
+            <div id="act-des">Description: {activity.description}</div>
           </div>
         );})}   
     </div>

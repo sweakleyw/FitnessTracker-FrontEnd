@@ -1,14 +1,17 @@
-import { Link, useOutletContext, useParams } from "react-router-dom";
+import { Link, useNavigate, useOutletContext, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../api";
-import { userMe } from "../api";
+import { BASE_URL} from "../api";
 
 
 export default function MyRoutines() {
-    const [myRoutines, setMyRoutines] = useState([]);
-    const [myActivities, setMyActivities] = useState([]);
+    const [theRoutines, setTheRoutines] = useState([]);
    
-    const {user} = useOutletContext();
+    const {user, token, routines, activities} = useOutletContext();
+    // console.log(user)
+
+    const { routineActivityId } = useParams();
+
+    const navigate = useNavigate();
 
     async function getRoutines() {
         const token = localStorage.getItem("token")
@@ -19,56 +22,90 @@ export default function MyRoutines() {
             },
           });
           const result = await response.json();
-          console.log(result)
-          setMyRoutines(result)
+          // console.log(result)
+          setTheRoutines(result)
     }
+    
+    async function handleDelete(routineId) {
+          try {
+            const response = await fetch(`${BASE_URL}/api/routines/${routineId}`, {
+               method: "DELETE",
+               headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                    },
+               });
+               const result = await response.json();
+               //   console.log(result)
+                setTheRoutines(result);
+                navigate("/routines")
+          } catch (error) {
+            console.error(error)  
+         }
+      }
+
+      async function handleActivity(routineActivityId) {
+        try {
+          const response = await fetch(`${BASE_URL}/api/routine_activities/${routineActivityId}`, {
+             method: "DELETE",
+             headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}`
+                  },
+             });
+             const result = await response.json();
+             console.log(result)
+             setTheRoutines(result);
+             navigate("/routines")
+              
+        } catch (error) {
+          console.error(error)  
+       }
+    }
+
 
     useEffect(() => {
         getRoutines()
-    }, [user])
+    }, [user]);
+
    
 
     return (
         <div>
-            <h1>{user.username}'s Profile</h1>
-            <Link to="/newroutine" >Add Routine</Link>
-            <h2>My Routines</h2>
-            {myRoutines.map((routine) => {
-                // console.log(routines)
-             if(routine.creatorName === user.username || !routine.isPublic) {
+            <h1 id="header">{user.username}'s Profile</h1>
+            <Link to="/newroutine" id="createroutine-btn">Create Routine</Link>
+            <h2 id="header">My Routines</h2>
+            {theRoutines && theRoutines.length
+            ? theRoutines.map((routine) => {
+                console.log(theRoutines)
                 return (
-                    <div key={routine.id}>
+                    <div id="myroutinespg" key={routine.id}>
                         <Link to={`/routines/${routine.id}`}>
-                        <div>Name: {routine.name}</div></Link>
-                        <div>Goal: {routine.goal}</div>
-                        <div>Creator: {routine.creatorName}</div>
-                        <button>Edit Routine</button>
-                        <button>Delete Routine</button>
-                        {!routine.isPublic && (
-                        <>
-                            <button>Make Public</button>
-                        </>
-                        )}
+                        <div id="rout-name">{routine.name}</div></Link>
+                        <div id="rout-goal">Goal: {routine.goal}</div>
+                        <Link to={`/routines/${routine.id}`}>
+                        <div id="editroutine-btn">Edit Routine</div></Link>
+                        <Link to={`/routines/${routine.id}/activities`}>
+                        <div id="addactivity-btn">Add Activities</div></Link>
+                        <button onClick={() => handleDelete(routine.id)} id="delete-btn">Delete Routine</button>
 
-                        {!routine.activity && (
-                        <>
-                            <button>Add Activity</button>
-                        </>
-                        )}
-
-                        {routine.activities.map(activity => 
+                        {routine.activities && routine.activities.length 
+                        ? routine.activities.map((activity) => 
                         <div key={activity.id}>
-                        <div>Activity: {activity.name}</div>
-                        <div>Description: {activity.description}</div>
-                        <div>Duration: {activity.duration}</div>
-                        <div>Count: {activity.count}</div>
-                        <button>Add Activity</button>
-                        <button>Edit Activity</button>
-                        <button>Delete Activity</button>
+                          <div id="routact-name">{activity.name}</div>
+                          <div id="routact-des">Description: {activity.description}</div>
+                          <div id="routact-dur">Duration: {activity.duration}</div>
+                          <div id="routact-count">Count: {activity.count}</div>
+                          <Link to={`/routine_activities/${activity.routineActivityId}`}>
+                          <div id="editactivity-btn">Edit Activity</div></Link>
+                          <button onClick={() => handleActivity(activity.routineActivityId)} id="delete-btn">Delete Activity</button>
                         </div>
-                        )}
+                        )
+                        : null}
                     </div>
-                )}
-            })}
-        </div>)
+                )
+            })
+            : null}
+        </div>
+        )
 }
