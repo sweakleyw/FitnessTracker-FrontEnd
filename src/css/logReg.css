@@ -1,0 +1,70 @@
+#log-reg-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.log-reg-wrapper {
+    margin: 20px;
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 15px;
+    background-color: #ffffffbe;
+}
+
+.logging-in {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.logging-in > input {
+    margin-bottom: 20px;
+}
+
+.log-in {
+    cursor: pointer;
+    padding: 7px 10px;
+    background-color:#EDB518;
+    color: #000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.log-in:hover {
+    background-color: #79031d;
+    color: white;
+    cursor: pointer;
+}
+
+.registration {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#reg-err {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ec2424;
+}
+
+.registration > input {
+    margin-bottom: 20px;
+}
+
+.reg-btn {
+    padding: 7px 10px;
+    background-color: #EDB518;
+    color: #000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.reg-btn:hover {
+    background-color: #79031d;
+    color: white;
+    cursor: pointer;
+}

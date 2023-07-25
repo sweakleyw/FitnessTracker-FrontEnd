@@ -41,7 +41,7 @@ export default function AddActivities() {
       }
 
     return(
-      <div>
+      <div id="addactivities-pg">
         <h1 id="header">Add Activities</h1>
         <form onSubmit={handleSubmit(activity)} id="addactivities-form">
         <input placeholder="count" onChange={(event) => setCount(event.target.value)}value={count}></input>

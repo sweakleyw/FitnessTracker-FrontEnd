@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { userRegister } from "../api";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+
+import "../css/logReg.css";
 
 export default function Register() {
     const [username, setUsername] = useState("");
@@ -36,9 +38,11 @@ export default function Register() {
     }
 
     return (
-    <div>
-        <h1 id="header">Register</h1>
-        <form onSubmit={handleRegister} id="registration">
+    <div id="log-reg-container">
+      <div className="log-reg-wrapper">
+         <h1 id="header">Register</h1>
+        <div className="forms">
+        <form onSubmit={handleRegister} className="registration">
             <input placeholder="username" onChange={(event) => setUsername(event.target.value)} value={username}
             />
             <input placeholder="password" type="password" onChange={(event) => setPassword(event.target.value)} value={password}
@@ -46,9 +50,13 @@ export default function Register() {
             <input placeholder="confirm" type="password" onChange={(event) => setConfirm(event.target.value)} value={confirm}
             />
             <div id="reg-err">{error}</div>
-            <button id="reg-btn">Register</button>
+            <button className="reg-btn">Register</button>
+            <div>Have an account? 
+                <Link to="/login" ><span>Login</span></Link>
+            </div>
         </form>
+        </div>
+      </div>
     </div> 
-
     )
 }

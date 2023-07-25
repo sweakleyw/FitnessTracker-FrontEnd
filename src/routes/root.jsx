@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/NavigationBar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getAllRoutines, getAllActivities, userMe} from "../api";
 
 
@@ -45,10 +45,12 @@ export default function Root() {
     }, [token])
 
 
+
+
     return (
         <div>
             <Navbar user={user} setUser={setUser} setToken={setToken} />
-            <Outlet context={{routines, activities, setToken, user, setUser, token, setRoutines, setActivities}}/>
+            <Outlet context={{routines, activities, setToken, user, setUser, token, setRoutines, setActivities,}}/>
         </div>
       );
     }

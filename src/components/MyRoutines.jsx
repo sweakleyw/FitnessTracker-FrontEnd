@@ -72,12 +72,11 @@ export default function MyRoutines() {
 
     return (
         <div>
-            <h1 id="header">{user.username}'s Profile</h1>
-            <Link to="/newroutine" id="createroutine-btn">Create Routine</Link>
-            <h2 id="header">My Routines</h2>
+          <h1 id="header">{user.username}'s Routines</h1>
+           <div className="my-routs-container">
             {theRoutines && theRoutines.length
             ? theRoutines.map((routine) => {
-                console.log(theRoutines)
+                // console.log(theRoutines)
                 return (
                     <div id="myroutinespg" key={routine.id}>
                         <Link to={`/routines/${routine.id}`}>
@@ -106,6 +105,7 @@ export default function MyRoutines() {
                 )
             })
             : null}
+           </div>
         </div>
         )
 }

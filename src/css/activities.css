@@ -1,0 +1,29 @@
+#activities {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.activity-container > #activitiespg {
+    flex: 1 0 100px;
+    display: flex;
+    flex-direction: column;
+  }
+
+#activitiespg {
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+#activitiespg:hover {
+    box-shadow: 3px 3px 7px 0px rgba(121, 3, 29, 0.31);
+    background-color: #EDB518;
+}

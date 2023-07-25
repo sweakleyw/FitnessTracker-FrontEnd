@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
-import { getAllRoutines } from "../api";
-import { useEffect } from "react";
+import "../css/routines.css";
 
 export default function AllRoutines() {
   const {routines} = useOutletContext();
@@ -13,8 +12,9 @@ export default function AllRoutines() {
   }
 
   return(
-   <div>
+   <div id="routines">
     <h1 id="header">Routines</h1>
+    <div className="routines-container">
     {routines && routines.length
     ? routines.map((routine) => {
       if(routine.isPublic) {
@@ -28,7 +28,6 @@ export default function AllRoutines() {
           ? routine.activities.map(activity => 
           <div key={activity.id}>
             <div id="routact-name">{activity.name}</div>
-            <div id="routact-des">Description: {activity.description}</div>
             <div id="routact-dur">Duration: {activity.duration}</div>
             <div id="routact-count">Count: {activity.count}</div>
           </div>
@@ -36,7 +35,8 @@ export default function AllRoutines() {
         </div>
        )}
       })
-    : null}   
+    : null}  
+    </div> 
   </div>
   )
 }

@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { userLogin } from "../api";
 
+import "../css/logReg.css";
 
 export default function Login() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirm, setConfirm] = useState("");
+    const [loginUsername, setLoginUsername] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
+    const [loginConfirm, setLoginConfirm] = useState("");
     const [error, setError] = useState("");
 
     const { setToken } = useOutletContext();
@@ -16,9 +17,13 @@ export default function Login() {
 
     async function handleLogin(event) {
         event.preventDefault();
-        // console.log(username, password, confirm);
 
-         const result = await userLogin(username, password);
+        if (loginPassword !== loginConfirm) {
+            setError(error);
+            return;
+           }
+
+         const result = await userLogin(loginUsername, loginPassword);
          
          if (result.error) {
             setError(result.error);
@@ -32,18 +37,25 @@ export default function Login() {
 
     
     return(
-     <div>
-      <h1 id="header">Login</h1>
-      <form onSubmit={handleLogin} id="logging-in">
-            <input placeholder="username" onChange={(event) => setUsername(event.target.value)} value={username}
+     <div id="log-reg-container">
+      <div className="log-reg-wrapper">
+         <h1 id="header">Login</h1>
+        <div className="forms">
+          <form onSubmit={handleLogin} className="logging-in">
+            <input placeholder="username" onChange={(event) => setLoginUsername(event.target.value)} value={loginUsername}
             />
-            <input placeholder="password" type="password" onChange={(event) => setPassword(event.target.value)} value={password}
+            <input placeholder="password" type="password" onChange={(event) => setLoginPassword(event.target.value)} value={loginPassword}
             />
-            <input placeholder="confirm" type="password" onChange={(event) => setConfirm(event.target.value)} value={confirm}
+            <input placeholder="confirm" type="password" onChange={(event) => setLoginConfirm(event.target.value)} value={loginConfirm}
             />
             <div id="reg-err">{error}</div>
-            <button id="log-in">Login</button>
-        </form>
-    </div>
+            <button className="log-in">Login</button>
+            <div>No account? 
+                <Link to="/register" ><span>Register</span></Link>
+            </div>
+          </form>
+       </div>
+      </div>
+     </div>
     )
 }

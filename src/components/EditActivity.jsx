@@ -41,7 +41,7 @@ export default function EditActivity() {
 
   
     return ( 
-    <div>
+    <div id="editactivities-pg">
       {/* {user.id && (
         <> */}
          <h1 id="header">Edit Activity</h1>

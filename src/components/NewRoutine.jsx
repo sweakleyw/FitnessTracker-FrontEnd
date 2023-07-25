@@ -32,7 +32,7 @@ export default function NewRoutine() {
     }
 
     return (
-    <div>
+    <div id="create-routinepg">
         <h1 id="header">Create Routine</h1>
         <form onSubmit={handleSubmit} id="createroutines-form">
             <input placeholder="Name" onChange={(event) => setName(event.target.value)} value={name}></input>

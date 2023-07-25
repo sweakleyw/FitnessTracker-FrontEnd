@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+import './css/index.css'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,6 +16,7 @@ import Routine from './components/Routine';
 import NewRoutine from './components/NewRoutine';
 import AddActivities from './components/AddActivities';
 import EditActivity from './components/EditActivity';
+import NewActivity from './components/NewActivity';
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: "/newroutine",
         element: <NewRoutine />,
+      },
+      {
+        path: "/newactivity",
+        element: <NewActivity />,
       },
       {
         path: "/activities",

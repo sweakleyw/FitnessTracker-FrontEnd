@@ -1,0 +1,64 @@
+#home-pg {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ft-banner {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .welcome {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .welcome-statement {
+    border: 3px solid white;
+    color: white;
+    width: 50%;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.438);
+  }
+
+  .ft-banner > img {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .welcome-statement h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 10px 10px 30px;
+
+  }
+
+  .welcome-statement div {
+    font-family: 'Archivo', sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+  }
+
+  .ft-banner button {
+    cursor: pointer;
+    margin: 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: #79031d8e;
+    border: 2px solid white;
+    color: white;
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  .ft-banner button:hover {
+    cursor: pointer;
+    background-color: #edb418ab;
+  }

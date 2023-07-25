@@ -1,0 +1,32 @@
+#routines {
+    display: flex;
+    flex-direction: column;
+}
+
+.routines-container {
+    max-width: 1500px;
+    flex-wrap: wrap;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.routines-container > #routinespg {
+    flex: 1 0 350px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #routinespg {
+    margin: 15px;
+    padding: 10px;
+    background-color: #ffffffbe;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+#routinespg:hover {
+    background-color: #edb418ec;
+    box-shadow: 3px 3px 7px 0px rgba(121, 3, 29, 0.31);
+}
