@@ -23,12 +23,8 @@
   color: white;
   width: 50%;
   border-radius: 15px;
-  padding: 15px;
+  padding: 40px;
   background-color: rgba(0, 0, 0, 0.438);
-}
-
-.ft-banner > img {
-  position: relative;
 }
 
 .welcome-statement h1 {
@@ -41,12 +37,15 @@
 .welcome-statement div {
   font-family: "Archivo", sans-serif;
   font-size: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
-.ft-banner button {
+.second {
+  margin-bottom: 20px;
+}
+
+.ft-banner a {
   cursor: pointer;
-  margin: 20px;
   padding: 10px 15px;
   font-size: 18px;
   background-color: #79031d8e;
@@ -55,7 +54,7 @@
   font-family: "Exo 2", sans-serif;
 }
 
-.ft-banner button:hover {
+.ft-banner a:hover {
   cursor: pointer;
   background-color: #edb418ab;
 }

@@ -1,10 +1,7 @@
+import { Link } from "react-router-dom";
 import "../css/home.css";
 
 export default function Homepage() {
-  function logReg() {
-    window.location.href = "./login";
-  }
-
   return (
     <div id='home-pg'>
       <div className='ft-banner'>
@@ -12,8 +9,10 @@ export default function Homepage() {
           <div className='welcome-statement'>
             <h1>Welcome to Fitness track.r</h1>
             <div>Keep Track of Your Exercises!</div>
-            <div>Login or Register and get in shape today!</div>
-            <button onClick={() => logReg()}>Login/Register</button>
+            <div className='second'>
+              Login or Register and get in shape today!
+            </div>
+            <Link to='/login'>Login/Register</Link>
           </div>
         </div>
       </div>
